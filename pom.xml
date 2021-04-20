@@ -1,0 +1,208 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>br.com.viavarejo</groupId>
+	<artifactId>EmployeeProject</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+
+	<name>EmployeeProject</name>
+	<url>http://maven.apache.org</url>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.5.1</version>
+				<configuration>
+					<source>15</source>
+					<target>15</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<!-- <version-jackson-core>2.9.8</version-jackson-core> -->
+		<!-- <version-jackson-databind>2.9.8</version-jackson-databind> -->
+		<!-- <version-jackson-annotations>2.9.8</version-jackson-annotations> -->
+		<!-- <version-jersey-apache-client4>1.19.3</version-jersey-apache-client4> -->
+		<!-- <version-jersey-server>1.17.1</version-jersey-server> -->
+		<!-- <version-jersey-core>1.17.1</version-jersey-core> -->
+		<!-- <version-jersey-servlet>1.17.1</version-jersey-servlet> -->
+		<version-xstream>1.4.13</version-xstream>
+		<version-commons-configuration>1.10</version-commons-configuration>
+		<version-guice>4.0</version-guice>
+		<version-jettison>1.3.1</version-jettison>
+		<version-spring-web>4.3.14.RELEASE</version-spring-web>
+		<version-org.json>20180130</version-org.json>
+
+		<jsf.version>2.2.13</jsf.version>
+		<primefaces.version>6.0</primefaces.version>
+	</properties>
+
+	<dependencies>
+
+		<!-- <dependency> -->
+		<!-- <groupId>employeeApiConsumer</groupId> -->
+		<!-- <artifactId>EmployeeApiConsumer</artifactId> -->
+		<!-- <version>0.0.1</version> -->
+		<!-- </dependency> -->
+
+		<dependency>
+			<groupId>org.meujar</groupId>
+			<artifactId>meujar</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/javax.annotation/javax.annotation-api -->
+		<dependency>
+			<groupId>javax.annotation</groupId>
+			<artifactId>javax.annotation-api</artifactId>
+			<version>1.3.2</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/javax.servlet.jsp/javax.servlet.jsp-api -->
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>javax.servlet.jsp-api</artifactId>
+			<version>2.3.3</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.glassfish.web/javax.servlet.jsp.jstl -->
+		<dependency>
+			<groupId>org.glassfish.web</groupId>
+			<artifactId>javax.servlet.jsp.jstl</artifactId>
+			<version>1.2.5</version>
+		</dependency>
+
+		<!-- JSF library -->
+		<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-api</artifactId>
+			<version>2.2.17</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-impl</artifactId>
+			<version>2.2.17</version>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>${primefaces.version}</version>
+		</dependency>
+
+		<!-- -->
+		<!-- <dependency> -->
+		<!-- <groupId>com.owlike</groupId> -->
+		<!-- <artifactId>genson</artifactId> -->
+		<!-- <version>LATEST</version> -->
+		<!-- </dependency> -->
+
+		<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+		<!-- <dependency> -->
+		<!-- <groupId>com.google.code.gson</groupId> -->
+		<!-- <artifactId>gson</artifactId> -->
+		<!-- <version>2.8.6</version> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.json</groupId> -->
+		<!-- <artifactId>json</artifactId> -->
+		<!-- <version>${version-org.json}</version> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>com.fasterxml.jackson.core</groupId> -->
+		<!-- <artifactId>jackson-core</artifactId> -->
+		<!-- <version>${version-jackson-core}</version> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>com.fasterxml.jackson.core</groupId> -->
+		<!-- <artifactId>jackson-databind</artifactId> -->
+		<!-- <version>${version-jackson-databind}</version> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>com.fasterxml.jackson.core</groupId> -->
+		<!-- <artifactId>jackson-annotations</artifactId> -->
+		<!-- <version>${version-jackson-annotations}</version> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>com.sun.jersey.contribs</groupId> -->
+		<!-- <artifactId>jersey-apache-client4</artifactId> -->
+		<!-- <version>${version-jersey-apache-client4}</version> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>com.sun.jersey</groupId> -->
+		<!-- <artifactId>jersey-server</artifactId> -->
+		<!-- <version>${version-jersey-server}</version> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>com.sun.jersey</groupId> -->
+		<!-- <artifactId>jersey-core</artifactId> -->
+		<!-- <version>${version-jersey-core}</version> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>com.sun.jersey</groupId> -->
+		<!-- <artifactId>jersey-servlet</artifactId> -->
+		<!-- <version>${version-jersey-servlet}</version> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>com.thoughtworks.xstream</groupId> -->
+		<!-- <artifactId>xstream</artifactId> -->
+		<!-- <version>${version-xstream}</version> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>commons-configuration</groupId> -->
+		<!-- <artifactId>commons-configuration</artifactId> -->
+		<!-- <version>${version-commons-configuration}</version> -->
+		<!-- <scope>compile</scope> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>com.google.inject</groupId> -->
+		<!-- <artifactId>guice</artifactId> -->
+		<!-- <version>${version-guice}</version> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.codehaus.jettison</groupId> -->
+		<!-- <artifactId>jettison</artifactId> -->
+		<!-- <version>${version-jettison}</version> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.springframework</groupId> -->
+		<!-- <artifactId>spring-web</artifactId> -->
+		<!-- <version>${version-spring-web}</version> -->
+		<!-- </dependency> -->
+
+		<dependency>
+			<groupId>javax.enterprise</groupId>
+			<artifactId>cdi-api</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>1.3.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.2.1</version>
+		</dependency>
+
+
+	</dependencies>
+</project>

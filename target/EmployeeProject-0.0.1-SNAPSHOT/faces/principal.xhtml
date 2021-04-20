@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/WEB-INF/template/crud/tplPageGenerica.xhtml">
+	
+	<ui:define name="viewNavigationTrail">
+		<h:outputText value="#{ResourceLabel.lbl_Home_viewNavigationTrail}" class="viewNavigationTrail"/>
+	</ui:define>
+	
+	<ui:define name="tituloPagina">
+<!-- 		<h:outputText value="#{ResourceLabel.lbl_home_tituloPagina}" class="tituloPagina"/><br/> -->
+		<h:outputText value="#{ResourceLabel.lbl_home_tituloPagina_descricao}"/>
+	</ui:define>
+	
+	<ui:define name="conteudoGenerico">
+		<div id="paginaInicial"></div>
+	</ui:define>
+	
+</ui:composition>

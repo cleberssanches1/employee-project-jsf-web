@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    template="/WEB-INF/template/crud/tplPagePerson.xhtml">
+
+    <!-- Metodos dos botoes do template -->
+    <ui:param name="managedBean" value="#{employeeMBean}" />
+    <ui:param name="acaoFiltrar" value="buscar" />
+    <ui:param name="updateFiltrar" value="conteudoLista" />
+    <ui:param name="acaoLimpar" value="limpar" />
+    <ui:param name="updateLimpar" value="conteudoFiltro" />
+    <ui:param name="acaoNovo" value="assuntoDetalhe" />
+   
+    <ui:param name="renderedFieldsetLista" value="#{managedBean.verFiltro}" />
+
+    <ui:define name="viewNavigationTrail">
+        <h:outputText value="#{ResourceLabel.lbl_menu_manutencao}/#{ResourceLabel.lbl_employee_tituloPagina}" class="viewNavigationTrail" />
+    </ui:define>
+
+    <ui:define name="tituloPagina">
+        <h:outputText value="#{ResourceLabel.lbl_employee_tituloPagina}" class="tituloPagina" />
+        <br />
+        <h:outputText value="#{ResourceLabel.lbl_default_consulta}" class="tituloPagina" />
+    </ui:define>
+    <ui:define name="conteudoFiltro">
+        <p:panelGrid styleClass="panelGrid">
+            <p:row>
+	             
+	            <p:column style="width:14%">
+	                 <h:outputLabel for="filtroCpfId" value="#{ResourceLabel.lbl_contratoTrabalho_cpf}" />
+	            </p:column>
+	            <p:column style="width:24%">
+	               <p:inputMask id="filtroCpfId" mask="999.999.999-99" maxlength="18" size="15" value="#{managedBean.filtro.cpf}" />
+	            </p:column>
+	            <p:column style="width:12%">
+	                 <p:message id="filtroCpfMsgId" for="filtroCpfId"/> 
+	            </p:column> 	            
+            </p:row>
+           
+	            
+        </p:panelGrid>
+    </ui:define>
+
+    <ui:define name="botoesPesonalizados">
+                   
+	          <p:commandButton value="#{ResourceLabel.tooltip_default_btnFiltrar}"
+	            icon="ui-icon-search" action="#{managedBean.buscar}"
+	            update=":form1 conteudoLista form1:mensagensGerais"/>
+
+              <p:commandButton value="#{ResourceLabel.tooltip_default_btnNovo}" icon="ui-icon-document" action="#{managedBean.novo}" immediate="true"/>
+
+		      <p:commandButton value="#{ResourceLabel.tooltip_default_btnLimpar}"
+		            icon="ui-icon-document-b"  update=":form1" actionListener="#{managedBean.limparCampos}" immediate="true" />
+   
+               <p:fileUpload mode="advanced" fileUploadListener="#{managedBean.importarEmployees}"
+		          allowTypes="/(\.|\/)(csv)$/" auto="true" invalidFileMessage="Arquivos invalidos"/>         
+   
+    </ui:define>
+
+    <ui:define name="conteudoLista">
+        <p:dataTable id="dTableAgencia" var="elemento"
+            value="#{managedBean.employeeListagem}" styleClass="titTable"
+            scrollWidth="950" scrollable="true" paginator="true" rows="12" paginatorPosition="bottom"
+			rowsPerPageTemplate="12,24,36,48"          
+            emptyMessage="#{ResourceLabel.lbl_default_NoRecordFont}">
+
+            <p:column style="width:80px;" headerText="#{ResourceLabel.lbl_idPerson}" sortBy="#{elemento.idPerson}">
+                <h:outputText value="#{elemento.idPerson}" />
+            </p:column>
+
+            <p:column style="width:150px;" headerText="#{ResourceLabel.lbl_name}" sortBy="#{elemento.name}">
+                <h:outputText value="#{elemento.name}" />
+            </p:column>
+            
+            <p:column style="width:150px;" headerText="#{ResourceLabel.lbl_email}" sortBy="#{elemento.email}" >
+                <h:outputText value="#{elemento.email}" />
+            </p:column>
+            
+             <p:column  style="width:150px;" headerText="#{ResourceLabel.lbl_cpf}" sortBy="#{elemento.cpf}">
+                <h:outputText value="#{elemento.cpf}" />
+            </p:column>
+            
+            <p:column  style="width:80px;" headerText="#{ResourceLabel.lbl_celphone}" sortBy="#{elemento.celphone}" >
+                <h:outputText value="#{elemento.celphone}" />
+            </p:column>
+            
+            
+             <p:column  style="width:80px;" headerText="#{ResourceLabel.lbl_groups}" sortBy="#{elemento.groups}" >
+                <h:outputText value="#{elemento.groups}" />
+            </p:column>
+            
+            <p:column  style="width:80px;" headerText="#{ResourceLabel.lbl_leaders}" sortBy="#{elemento.leaders}" >
+                <h:outputText value="#{elemento.leaders}" />
+            </p:column>
+            
+            <p:column style="width:80px;"  headerText="#{ResourceLabel.lbl_language}" sortBy="#{elemento.language}" >
+                <h:outputText value="#{elemento.language}" />
+            </p:column>
+            
+            <p:column  style="width:80px;" headerText="#{ResourceLabel.lbl_blocked}" sortBy="#{elemento.blocked}" >
+                <h:outputText value="#{elemento.blocked}" />
+            </p:column>
+            
+            
+            <p:column  style="width:80px;" headerText="#{ResourceLabel.lbl_sex}" sortBy="#{elemento.sex}" >
+                <h:outputText value="#{elemento.sex}" />
+            </p:column>
+            
+             <p:column  style="width:80px;" headerText="#{ResourceLabel.lbl_birthday}" sortBy="#{elemento.birthday}" >
+                <h:outputText value="#{elemento.birthday}" />
+            </p:column>
+            
+            
+              <p:column  style="width:80px;" headerText="#{ResourceLabel.lbl_hiringDate}" sortBy="#{elemento.hiringDate}" >
+                <h:outputText value="#{elemento.hiringDate}" />
+            </p:column>
+            
+              <p:column style="width:80px;"  headerText="#{ResourceLabel.lbl_resignationdate}" sortBy="#{elemento.resignationdate}" >
+                <h:outputText value="#{elemento.resignationdate}" />
+            </p:column>
+            
+            <p:column  style="width:80px;" headerText="#{ResourceLabel.lbl_position}" sortBy="#{elemento.position}" >
+                <h:outputText value="#{elemento.position}" />
+            </p:column>
+            
+             <p:column style="width:80px;"  headerText="#{ResourceLabel.lbl_scholarity}" sortBy="#{elemento.scholarity}" >
+                <h:outputText value="#{elemento.scholarity}" />
+            </p:column>
+            
+             <p:column  style="width:80px;" headerText="#{ResourceLabel.lbl_unitBusiness}" sortBy="#{elemento.unitBusiness}" >
+                <h:outputText value="#{elemento.unitBusiness}" />
+            </p:column>
+            
+            <p:column style="width:80px;"  headerText="#{ResourceLabel.lbl_unitGeography}" sortBy="#{elemento.unitGeography}" >
+                <h:outputText value="#{elemento.unitGeography}" />
+            </p:column>
+            
+                                    
+            <p:column headerText="#{ResourceLabel.lbl_default_acoes}" style="width:80px; text-align: center;">  
+                <p:commandButton action="#{managedBean.detalhe}" title="#{ResourceLabel.lbl_agencia_link_detalhe}" icon="ui-icon-search">
+                    <f:setPropertyActionListener value="#{elemento}" target="#{managedBean.employeeItemListagem}" />
+                </p:commandButton>
+                
+                <p:commandButton action="#{managedBean.delete}" title="#{ResourceLabel.tooltip_default_btnExcluir}" icon="ui-icon-trash">
+                    <f:setPropertyActionListener value="#{elemento}" target="#{managedBean.employeeItemListagem}" />
+                </p:commandButton>
+            </p:column>
+            
+        </p:dataTable>
+        
+    </ui:define>
+    
+</ui:composition>

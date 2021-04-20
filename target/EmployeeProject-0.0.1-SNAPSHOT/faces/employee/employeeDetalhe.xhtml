@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:pe="http://primefaces.org/ui/extensions"
+    template="/WEB-INF/template/crud/tplPageDetalhe.xhtml">
+
+    <ui:param name="legendaFieldset" value="#{ResourceLabel.lbl_default_cadastro}" />
+    <ui:param name="managedBean" value="#{employeeDetalheMBean}" />
+
+    <ui:define name="viewNavigationTrail">
+        <h:outputText value="#{ResourceLabel.lbl_employee_tituloPagina}" class="viewNavigationTrail" />
+    </ui:define>
+    <ui:define name="tituloPagina">
+        <h:outputText value="#{ResourceLabel.lbl_employee_tituloPagina}"  class="tituloPagina" />
+        <br />
+        <h:outputText value="#{ResourceLabel.lbl_employee_subtituloPagina}" />
+    </ui:define>
+
+    <ui:define name="conteudoDetalhes" styleClass="panelGrid">
+        <p:panelGrid id="panelDetalhe" styleClass="panelGrid">
+
+            <p:panelGrid id="linhaUm" styleClass="panelGrid" columns="2">
+
+                <p:panelGrid columns="2" styleClass="panelGrid">
+                    <h:panelGroup>
+                        <p:outputLabel for="idPerson" value="#{ResourceLabel.lbl_idPerson}" />
+                    </h:panelGroup>
+                    <h:panelGroup>
+                        <p:inputText id="idPerson" style="margin-left: 35px;"
+                            disabled="true"
+                            value="#{employeeDetalheMBean.employeeItemListagem.idPerson}"
+                            panelStyle="width:100px" maxlength="60" tabIndex="1" size="40"
+                            required="false"
+                            onkeypress="return validarCaracteresEspeciais(event);"
+                            onkeyup="maiuscula(this)"                           
+                            requiredMessage="#{ResourceLabel.lbl_idPerson_requerida}">
+                        </p:inputText>
+                        <p:message id="idPersonMsg" for="idPerson" />
+                    </h:panelGroup>
+                </p:panelGrid>
+
+
+                <p:panelGrid columns="2" styleClass="panelGrid">
+                    <h:panelGroup>
+                        <p:outputLabel for="name" value="#{ResourceLabel.lbl_name}" />
+                    </h:panelGroup>
+                    <h:panelGroup>
+                        <p:inputText id="name"
+                            value="#{employeeDetalheMBean.employeeItemListagem.name}"
+                            panelStyle="width:100px" maxlength="250" tabIndex="2" size="40"
+                            required="true"
+                            onkeypress="return validarCaracteresEspeciais(event);"
+                            onkeyup="maiuscula(this)"                           
+                            requiredMessage="#{ResourceLabel.lbl_name_requerido}">
+                        </p:inputText>
+                        <p:message id="nameMsg" for="name" />
+                    </h:panelGroup>
+                </p:panelGrid>
+
+            </p:panelGrid>
+
+            <p:panelGrid id="linhaDois" styleClass="panelGrid" columns="2">
+
+                   <p:panelGrid columns="2" styleClass="panelGrid">
+                    <h:panelGroup>
+                        <p:outputLabel for="email" value="#{ResourceLabel.lbl_email}" />
+                    </h:panelGroup>
+                    <h:panelGroup>
+                        <p:inputText id="email"
+                            value="#{employeeDetalheMBean.employeeItemListagem.email}" style="margin-left: 48px;"
+                            panelStyle="width:100px" maxlength="250" tabIndex="3" size="40"
+                            required="true"
+                            onkeypress="return validarCaracteresEspeciais(event);"
+                            onkeyup="maiuscula(this)"                           
+                            requiredMessage="#{ResourceLabel.lbl_email_requerido}"
+                            validatorMessage="E-mail incorreto.">
+                            
+                             <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+                            
+                        </p:inputText>
+                        <p:message id="emailMsg" for="email" />
+                    </h:panelGroup>
+                </p:panelGrid>
+
+
+                <p:panelGrid columns="2" styleClass="panelGrid">
+                    <h:panelGroup>
+                        <p:outputLabel for="cpfId" value="#{ResourceLabel.lbl_cpf}" />
+                    </h:panelGroup>
+                    <h:panelGroup>
+                        <p:inputMask id="cpfId" mask="999.999.999-99" style="margin-left: 0px;"                           
+                            value="#{employeeDetalheMBean.employeeItemListagem.cpf}"
+                            panelStyle="width:100px" maxlength="15" tabIndex="4" size="40"
+                            required="true"
+                            requiredMessage="#{ResourceLabel.lbl_cpf_requerido}">                          
+                        </p:inputMask>
+                        <p:message id="cpfIdMsg" for="cpfId" />
+                    </h:panelGroup>
+                </p:panelGrid>
+             
+            </p:panelGrid>
+
+            <p:panelGrid id="linhaQuatro" styleClass="panelGrid" columns="2">
+            
+                <p:panelGrid columns="2" styleClass="panelGrid">
+                    <h:panelGroup>
+                        <p:outputLabel for="internalNumber" value="#{ResourceLabel.lbl_internal_number}" />
+                    </h:panelGroup>
+                    <h:panelGroup>
+                        <p:inputText id="internalNumber"
+                            value="#{employeeDetalheMBean.employeeItemListagem.internalNumber}"
+                            panelStyle="width:100px" maxlength="50" tabIndex="5" size="30"
+                            required="false"
+                            onkeypress="return validarCaracteresEspeciais(event);"
+                            onkeyup="maiuscula(this)"                           
+                            requiredMessage="#{ResourceLabel.lbl_internalNumber_requerido}">
+                        </p:inputText>
+                        <p:message id="internalNumberMsg" for="internalNumber" />
+                    </h:panelGroup>
+                </p:panelGrid>
+            
+                <p:panelGrid columns="2" styleClass="panelGrid">
+                    <h:panelGroup>
+                        <p:outputLabel for="celphoneId" value="#{ResourceLabel.lbl_celphone}" style="margin-left: 60px;" />
+                    </h:panelGroup>
+                    <h:panelGroup>
+                        <p:inputMask id="celphoneId" 
+                            style="margin-left: 4px;"                      
+                            value="#{employeeDetalheMBean.employeeItemListagem.celphone}"
+                            panelStyle="width:100px" maxlength="255" tabIndex="6" size="40"
+                            onkeypress="return validarCaracteresEspeciais(event);"
+                            onkeyup="maiuscula(this)">
+                        </p:inputMask>
+                        <p:message id="celphoneIdMsg" for="celphoneId" />
+
+                    </h:panelGroup>
+                </p:panelGrid>
+
+              
+            </p:panelGrid>
+
+            <p:panelGrid id="linhaCinco" styleClass="panelGrid" columns="2">            
+            
+              <p:panelGrid columns="2" styleClass="panelGrid">
+                    <h:panelGroup>
+                        <p:outputLabel for="txtGroupsId" value="#{ResourceLabel.lbl_groups}" style="margin-left: 0px;" />
+                    </h:panelGroup>
+                    <h:panelGroup>
+                        <p:inputText id="txtGroupsId" style="margin-left: 43px;"                           
+                            value="#{employeeDetalheMBean.employeeItemListagem.groupsTela}"
+                            panelStyle="width:100px" maxlength="40" size="40" tabIndex="7"
+                            required="false"
+                            onkeypress="return validarCaracteresEspeciais(event);"
+                            onkeyup="maiuscula(this)"
+                            requiredMessage="#{ResourceLabel.lbl_numero_requerido}">
+                        </p:inputText>
+                        <p:message id="txtGroupsMsg" for="txtGroupsId" />
+
+                    </h:panelGroup>
+                </p:panelGrid>
+            
+            
+                <p:panelGrid columns="2" styleClass="panelGrid">
+                    <h:panelGroup>
+                        <p:outputLabel for="txtLeadersId" value="#{ResourceLabel.lbl_leaders}" />
+                    </h:panelGroup>
+                    <h:panelGroup>
+                        <p:inputText id="txtLeadersId"  style="margin-left: 3px;"                          
+                            value="#{employeeDetalheMBean.employeeItemListagem.leadersTela}"
+                            panelStyle="width:100px" maxlength="40" size="40" tabIndex="8"
+                            onkeypress="return validarCaracteresEspeciais(event);"
+                            onkeyup="maiuscula(this)"
+                            required="false"
+                            requiredMessage="#{ResourceLabel.lbl_leaders_requerido}">
+                        </p:inputText>
+                        <p:message id="leadersMsg" for="txtLeadersId" />
+                    </h:panelGroup>
+                </p:panelGrid>
+                
+            </p:panelGrid>
+
+            <p:panelGrid id="linhaSeis" styleClass="panelGrid" columns="2">
+            
+            <p:panelGrid columns="2" styleClass="panelGrid">
+                    <h:panelGroup>
+                        <p:outputLabel for="txtLanguageId" value="#{ResourceLabel.lbl_language}" style="margin-left: 0px;" />
+                    </h:panelGroup>
+                    <h:panelGroup>
+                         <p:inputText id="txtLanguageId" style="margin-left: 30px;"                           
+                            value="#{employeeDetalheMBean.employeeItemListagem.language}"
+                            panelStyle="width:100px" maxlength="5" size="40" tabIndex="9"
+                            onkeypress="return validarCaracteresEspeciais(event);"
+                            onkeyup="maiuscula(this)"
+                            required="true"
+                            requiredMessage="#{ResourceLabel.lbl_language_requerido}">
+                        </p:inputText>
+                        <p:message id="txtLanguageMsg" for="txtLanguageId" />
+                    </h:panelGroup>
+                </p:panelGrid>
+            
+                <p:panelGrid columns="2" styleClass="panelGrid">
+                    <h:panelGroup>
+                        <p:outputLabel for="txtblockedId" value="#{ResourceLabel.lbl_blocked}" />
+                    </h:panelGroup>
+                    <h:panelGroup>
+                        <p:inputText id="txtblockedId" style="margin-left: 4px;"                           
+                            value="#{employeeDetalheMBean.employeeItemListagem.blocked}"
+                            panelStyle="width:100px" maxlength="15" size="40" tabIndex="10"
+                            onkeypress="return validarCaracteresEspeciais(event);"
+                            onkeyup="maiuscula(this)"
+                            required="true"
+                            requiredMessage="#{ResourceLabel.lbl_blocked_requerido}">
+                        </p:inputText>
+                        <p:message id="txtblockedMsg" for="txtblockedId" />
+                    </h:panelGroup>
+                </p:panelGrid>
+              
+            </p:panelGrid>
+
+            <p:panelGrid id="linhaSete" styleClass="panelGrid" columns="2">
+            
+              <p:panelGrid columns="2" styleClass="panelGrid">
+                    <h:panelGroup>
+                        <p:outputLabel for="txtSexId" value="#{ResourceLabel.lbl_sex}" style="margin-right: 56px;" />
+                    </h:panelGroup>
+                    <h:panelGroup>                    
+                           <p:selectOneMenu id="txtSexId" style="margin-left: 0px; width:150px"
+	                            tabIndex="11"
+	                            value="#{employeeDetalheMBean.employeeItemListagem.sex}"
+	                            required="true"	                         
+	                            requiredMessage="#{ResourceLabel.lbl_sex_requerido}">
+                             <f:selectItem itemValue = "M" itemLabel = "Masculino" /> 
+						     <f:selectItem itemValue = "F" itemLabel = "Feminino" />                             
+                          </p:selectOneMenu>
+                  
+                        <p:message id="txtSexMsg" for="txtSexId" />
+                    </h:panelGroup>
+                </p:panelGrid>
+                                
+                <p:panelGrid columns="2" styleClass="panelGrid">
+                    <h:panelGroup>
+                        <p:outputLabel for="txtBirthday" value="#{ResourceLabel.lbl_birthday}" style="margin-left: 101px;"/>
+                    </h:panelGroup>
+                    <h:panelGroup>
+                         	<p:calendar id="txtBirthday" pattern="yyyy/MM/dd" 
+								maxlength="10" size="20" style="margin-left: 2px;"
+								mask="9999/99/99"
+								value="#{employeeDetalheMBean.employeeItemListagem.birthdayTela}"
+								tabIndex="12" showOn="button" locale="pt_BR"
+							    required="true"
+                                requiredMessage="#{ResourceLabel.lbl_birthday_requerido}" /> 
+                        <p:message id="txtBirthdayMsg" for="txtBirthday" />
+                    </h:panelGroup>
+                </p:panelGrid>               
+                
+            </p:panelGrid>
+            
+            
+            <p:panelGrid id="linhaOito" styleClass="panelGrid" columns="2">
+            
+                   <p:panelGrid columns="2" styleClass="panelGrid">
+                    <h:panelGroup>
+                        <p:outputLabel for="txtHiringDate" value="#{ResourceLabel.lbl_hiringDate}" style="margin-left: 0px;" />
+                    </h:panelGroup>
+                    <h:panelGroup>
+                         	<p:calendar id="txtHiringDate" pattern="yyyy/MM/dd" style="margin-left: 27px;"
+								maxlength="10" size="20" 
+								mask="9999/99/99"
+								value="#{employeeDetalheMBean.employeeItemListagem.hiringDateTela}"
+								tabIndex="13" showOn="button" locale="pt_BR"
+							    required="false"
+                                requiredMessage="#{ResourceLabel.lbl_hiringDate_requerido}" /> 
+                        <p:message id="txtHiringDateMsg" for="txtHiringDate" />
+                    </h:panelGroup>
+                </p:panelGrid>
+            
+             
+                    <p:panelGrid columns="2" styleClass="panelGrid">
+                    <h:panelGroup>
+                        <p:outputLabel for="txtResignationdate" value="#{ResourceLabel.lbl_resignationdate}" />
+                    </h:panelGroup>
+                    <h:panelGroup>
+                         	<p:calendar id="txtResignationdate" pattern="yyyy/MM/dd"
+								maxlength="10" size="20" style="margin-left: 0px;"
+								mask="9999/99/99"
+								value="#{employeeDetalheMBean.employeeItemListagem.resignationdateTela}"
+								tabIndex="14" showOn="button" locale="pt_BR"
+							    required="false"
+                                requiredMessage="#{ResourceLabel.lbl_resignationdate}" /> 
+                        <p:message id="txtResignationdateMsg" for="txtResignationdate" />
+                    </h:panelGroup>
+                </p:panelGrid>
+                                
+            </p:panelGrid>
+            
+            
+              <p:panelGrid id="linhaNove" styleClass="panelGrid" columns="2">
+              
+               <p:panelGrid columns="2" styleClass="panelGrid">
+                    <h:panelGroup>
+                        <p:outputLabel for="txtPositionId" value="#{ResourceLabel.lbl_position}" style="margin-left: 0px;"/>
+                    </h:panelGroup>
+                    <h:panelGroup>
+                        <p:inputText id="txtPositionId" style="margin-left: 39px;"                           
+                            value="#{employeeDetalheMBean.employeeItemListagem.position}"
+                            panelStyle="width:100px" maxlength="15" size="30" tabIndex="15"
+                            onkeypress="return validarCaracteresEspeciais(event);"
+                            onkeyup="maiuscula(this)"
+                            required="false"
+                            requiredMessage="#{ResourceLabel.lbl_position_requerido}">
+                        </p:inputText>
+                        <p:message id="txtPositionIdMsg" for="txtPositionId" />
+                    </h:panelGroup>
+                </p:panelGrid>    
+             
+                    <p:panelGrid columns="2" styleClass="panelGrid">
+                    <h:panelGroup>
+                        <p:outputLabel for="txtScholarity" value="#{ResourceLabel.lbl_scholarity}" style="margin-left: 65px;"/>
+                    </h:panelGroup>
+                    <h:panelGroup>
+                         	 <p:inputText id="txtScholarity" style="margin-left: 0px;"                           
+	                            value="#{employeeDetalheMBean.employeeItemListagem.scholarity}"
+	                            panelStyle="width:100px" maxlength="15" size="30" tabIndex="16"
+	                            onkeypress="return validarCaracteresEspeciais(event);"
+	                            onkeyup="maiuscula(this)"
+	                            required="false"
+	                            requiredMessage="#{ResourceLabel.lbl_scholarity_requerido}">
+                        </p:inputText>
+                        <p:message id="txtScholarityMsg" for="txtScholarity" />
+                    </h:panelGroup>
+                </p:panelGrid>
+            
+            </p:panelGrid>
+            
+             <p:panelGrid id="linhaDez" styleClass="panelGrid" columns="2">
+             
+                  <p:panelGrid columns="2" styleClass="panelGrid">
+                    <h:panelGroup>
+                        <p:outputLabel for="txtUnitBusinessId" value="#{ResourceLabel.lbl_unitBusiness}" style="margin-left: 0px;"/>
+                    </h:panelGroup>
+                    <h:panelGroup>
+                        <p:inputText id="txtUnitBusinessId" style="margin-left: 14px;"                           
+                            value="#{employeeDetalheMBean.employeeItemListagem.unitBusiness}"
+                            panelStyle="width:100px" maxlength="15" size="40" tabIndex="17"
+                            onkeypress="return validarCaracteresEspeciais(event);"
+                            onkeyup="maiuscula(this)"
+                            required="false"
+                            requiredMessage="#{ResourceLabel.lbl_unitBusiness_requerido}">
+                        </p:inputText>
+                        <p:message id="txtUnitBusinessIdMsg" for="txtUnitBusinessId" />
+                    </h:panelGroup>
+                </p:panelGrid>    
+             
+                    <p:panelGrid columns="2" styleClass="panelGrid">
+                    <h:panelGroup>
+                        <p:outputLabel for="txtUnitGeography" value="#{ResourceLabel.lbl_unitGeography}" />
+                    </h:panelGroup>
+                    <h:panelGroup>
+                         	 <p:inputText id="txtUnitGeography" style="margin-left: 0px;"                           
+	                            value="#{employeeDetalheMBean.employeeItemListagem.unitGeography}"
+	                            panelStyle="width:100px" maxlength="15" size="40" tabIndex="18"
+	                            onkeypress="return validarCaracteresEspeciais(event);"
+	                            onkeyup="maiuscula(this)"
+	                            required="false"
+	                            requiredMessage="#{ResourceLabel.lbl_unitGeography_requerido}">
+                        </p:inputText>
+                        <p:message id="txtUnitGeographyMsg" for="txtUnitGeography" />
+                    </h:panelGroup>
+                </p:panelGrid>
+                                
+            </p:panelGrid>
+            
+        </p:panelGrid>
+    </ui:define>
+
+    <ui:define name="botoesPesonalizados">
+        <p:commandButton value="#{ResourceLabel.tooltip_default_btnSalvar}"
+            id="botaoSalvar" icon="ui-icon-novo" title="salvar"
+            rendered="#{!managedBean.habilitacaoEdicao}"
+            onclick="PF('dialogoSalvarConfirmacaoId').show()" />
+
+        <p:commandButton value="#{ResourceLabel.lbl_default_btnVoltar}"
+            icon="ui-icon-arrowthick-1-w"
+            action="#{managedBean.redirectConsulta}" process="@this" />
+
+
+        <p:confirmDialog id="dialogoSalvarConfirmacaoId" closeOnEscape="true"
+            message="#{ResourceLabel.lbl_default_confirma_salvar}"
+            hideEffect="explode"
+            header="#{ResourceLabel.lbl_default_confirmacao}" severity="alert"
+            widgetVar="dialogoSalvarConfirmacaoId">
+            <p:commandButton value="#{ResourceLabel.lbl_default_sim}"
+                action="#{managedBean.salvar}" update=":form1 form1:mensagensGerais"
+                onclick="PF('dialogoSalvarConfirmacaoId').hide();" />
+
+            <p:commandButton value="#{ResourceLabel.lbl_default_nao}"
+                onclick="PF('dialogoSalvarConfirmacaoId').hide();" />
+        </p:confirmDialog>
+
+    </ui:define>
+
+
+</ui:composition>

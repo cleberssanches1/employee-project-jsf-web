@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+		"http://www.w3.org/TR/xhtml11-transitional.dtd">
+<ui:composition xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:form id="formMenu">
+		<h:panelGroup>
+
+			<p:menubar id="menuSistema">
+				<p:submenu label="Employee" icon="pi pi-file">
+					<p:menuitem label="Cadastro Employe" value="Cadastro Employe" icon="pi pi-briefcase" url="../faces/employee/employee.jsf">
+				  	</p:menuitem> 
+					<p:separator />
+				</p:submenu>
+			</p:menubar>
+
+		</h:panelGroup>
+	</h:form>
+
+	<p:sticky widgetVar="menuFixo" target="formMenu:menuSistema" />
+
+</ui:composition>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml11-transitional.dtd">
+<html xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+	
+	<h:head>
+	    <h:outputStylesheet library="style" name="css/style.css"/>
+	    <h:outputStylesheet library="style" name="css/jquery.reject.css"/>
+	    <h:outputScript library="js" name="locale-primefaces.js"/>
+	    <h:outputScript library="js" name="jquery.mask.min.js"/>
+	    <h:outputScript library="js" name="mascaras.js"/>
+	    <h:outputScript library="js" name="jquery.reject.js"/>
+	    <h:outputScript library="js" name="script.js"/>
+	</h:head>
+	<f:view>
+	<h:body id="corpoAplicacao">
+		<div id="pagina">
+			<div id="menu">
+				<ui:include src="menu.xhtml" />
+			</div>
+			<div id="titulo">
+				<div id="tituloPagina">
+					<ui:insert name="tituloPagina" />
+				</div>
+				<div id="viewNavigationTrail">
+					<ui:insert name="viewNavigationTrail" />
+				</div>
+			</div>
+			<div id="conteudo">
+				<ui:insert name="conteudoPagina" />
+			</div>
+			<ui:include src="rodape.xhtml" />
+		</div>
+
+		<h:form>
+			<!-- Dialogo de "carregando..." ajax -->
+			<p:ajaxStatus id="status" onstart="PF('statusDialog').show();"
+				onsuccess="PF('statusDialog').hide(); fixSticky();" onerror="PF('statusDialog').hide(); fixSticky();"
+				oncomplete="PF('statusDialog').hide(); fixSticky();" />
+			<p:dialog modal="true" widgetVar="statusDialog" showHeader="false"
+				draggable="false" closable="false" resizable="false">
+				<p:graphicImage library="style" name="img/loading2.gif"/>
+			</p:dialog>
+		</h:form>
+	</h:body>
+	<script>
+		excludeBadBrowsersAll();
+	</script>
+	</f:view>
+</html>

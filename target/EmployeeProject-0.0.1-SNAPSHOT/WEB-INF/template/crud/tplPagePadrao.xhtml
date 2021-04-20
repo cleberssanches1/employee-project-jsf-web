@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/template/template.xhtml">
+
+	<ui:define name="conteudoPagina">
+		<h:form id="form1">
+		
+			<!-- Dialogo de mensagens informativas e de erro  -->
+			<p:dialog id="modalDialog" header="#{managedBean.headerModalMsg}" widgetVar="modalDialog" 
+					  modal="true" height="80">  
+		   		<h:outputText value="#{managedBean.modalMsg}" /><br/><br/>
+		   		<hr/>
+		   		<p:commandButton value="Fechar" onclick="modalDialog.hide();" action="#{managedBean.redirectNextModalAction}"/> 
+			</p:dialog>
+		
+			<p:fieldset legend="#{ResourceLabel.lbl_default_filtro}"
+				id="fieldsetFiltro">
+				<ui:insert name="conteudoFiltro" />
+			</p:fieldset>
+			<ui:insert name="conteudoExtraFiltro" />
+			<p:toolbar styleClass="toolBar">
+				<p:toolbarGroup align="left">
+					<p:commandButton
+						value="#{ResourceLabel.tooltip_default_btnFiltrar}"
+						icon="ui-icon-search" actionListener="#{managedBean[acaoFiltrar]}"
+						update="#{updateFiltrar}" widgetVar="btnFiltrar" id="btnFiltrar"
+						title="#{ResourceLabel.tooltip_default_btnFiltrar}" 						
+					/>
+					<p:defaultCommand target="btnFiltrar" />
+					<p:commandButton 
+						value="#{ResourceLabel.tooltip_default_btnLimpar}"
+						icon="ui-icon-document-b"
+						actionListener="#{managedBean[acaoLimpar]}"
+						update="#{updateLimpar}"
+						title="#{ResourceLabel.tooltip_default_btnLimpar}"	
+					/>
+					<p:button 
+						value="#{ResourceLabel.tooltip_default_btnNovo}"
+						icon="ui-icon-document" outcome="#{acaoNovo}"
+						title="#{ResourceLabel.tooltip_default_btnNovo}"	 
+					/>
+					<p:button type="button" 
+						value="#{ResourceLabel.tooltip_default_btnVoltar}"
+						icon="ui-icon-arrowthick-1-w" outcome="#{acaoVoltar}"
+						title="#{ResourceLabel.tooltip_default_btnVoltar}"	 
+					/>
+				</p:toolbarGroup>
+			</p:toolbar>
+			<p:outputPanel id="conteudoLista">
+				<p:fieldset legend="#{ResourceLabel.lbl_default_grid}"
+					id="fieldsetLista" rendered="#{renderedFieldsetLista}">
+					<ui:insert name="conteudoLista" />
+				</p:fieldset>
+			</p:outputPanel>
+			<ui:insert name="conteudoPosLista" />
+
+		</h:form>
+	</ui:define>
+</ui:composition>

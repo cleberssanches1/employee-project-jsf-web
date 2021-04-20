@@ -1,0 +1,393 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+	padding: 0px;
+	margin: 0px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+}
+
+/*Divs layout*/
+div#pagina{
+	width: 980px;               
+	max-width:980px;
+	position: relative;
+	margin: auto;
+	height: auto;
+}
+
+div#info{
+	width: 100%;
+	max-width:980px;
+	height: 5px;
+	text-align: right;
+	padding: 8px 15px 0px 0px;
+	position: relative;
+}
+div#topo{
+	width: 100%;
+	max-width:980px;
+	height: 69px;
+	position: relative;
+	border-radius: 2px;
+}
+
+div#menu{
+	width: 100%;
+	max-width:980px;
+	height: 38px;
+	position: relative;
+}
+
+div#titulo{
+	width: 100%;
+	max-width:980px;
+	height: 48px;
+	position: relative;
+}
+
+div#conteudo{
+	width: 100%;
+	max-width:980px;
+	height: auto;
+	position: relative;
+}
+
+div#rodape{
+	width: 100%;
+	padding-top: 10px;
+	height:22px;
+	text-align:center;
+	color:#999999;
+	margin-top: 5px;
+	background-image: url(#{resource['style/img/bkgFilter.png']});
+	background-repeat:repeat-x;
+	background-position:bottom;
+	border:1px solid #ccc;
+	border-radius: 5px;
+	-moz-box-shadow: 0px 0px 5px #ccc !important;
+	-webkit-box-shadow: 0px 0px 5px #ccc !important;
+	box-shadow: 0px 0px 5px #ccc !important;
+	text-align: right;
+	position: relative;
+}
+
+div#viewNavigationTrail{
+	width:50%;
+	height: 40px;
+	padding-top: 15px;
+	padding-left: 5px;
+	text-align:right;
+	float:left;
+}
+
+div#viewNavigationTrail2{
+    width:48%;
+    height: 40px;
+    padding-top: 15px;
+    padding-left: 5px;
+    text-align:right;
+    float:left;
+}
+
+div#tituloPagina{
+	width: 48%;
+	height: 40px;
+	padding-top: 10px;
+	padding-left: 10px;
+	text-align: left;
+	float:left;
+}
+
+div#tituloPagina2{
+    width: 50%;
+    height: 40px;
+    padding-top: 10px;
+    padding-left: 10px;
+    text-align: left;
+    float:left;
+}
+
+div#paginaInicial{
+	width: 100%;
+	max-width:980px;
+	height:380px;
+	position: relative;
+	background-position:center;
+	background-repeat: no-repeat;
+	background-image: url(#{resource['style/img/marca_dagua.png']});
+}
+
+.toolBar{
+	margin: 5px 2px 0px;
+}
+
+.mensagensGerais{
+	margin: 0px 2px;
+}
+
+
+.logoViavarejo {
+    background-image: url(#{resource['style/img/logo.png']}) !important;
+	background-repeat: no-repeat;
+    background-size: contain;
+    height:16px;
+    width:70px !important;
+}
+
+.logoViavarejo.ui-state-hover{
+    background-image: url(#{resource['style/img/logo.png']}) !important;
+	background-repeat: no-repeat !important;
+    background-size: contain !important;
+    height:16px;
+    width:70px;
+}
+
+.logoViavarejo .ui-menuitem-text{
+	float: right !important;
+	font-weight: 800;
+}
+
+.ui-sticky{
+    z-index: 990 !important;
+}
+
+/* TEXTOS */
+
+span.versao{
+	margin-left: 180px;
+	margin-right: 50px;
+}
+
+span.login{
+
+	margin-top: 20px;
+}
+
+.viewNavigationTrail{
+	margin-top: 10px;
+	margin-bottom: 0px;
+	margin-right: 15px;
+	color: silver;
+	font-size: 11px; 
+}
+
+.viewNavigationTrail2{
+    margin-top: 10px;
+    margin-bottom: 0px;
+    margin-right: 15px;
+    color: silver;
+    font-size: 11px; 
+}
+
+.tituloPagina{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:20px;
+	color:#003300;
+	font-weight: bolder;
+}
+
+.tituloPagina2{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:16px;
+    color:#003300;
+    font-weight: bolder;
+}
+
+.dataMenor input{
+	width: 70px;
+}
+
+/*Alteração Primefaces*/
+.ui-widget {  
+   font-size: 11px !important;  
+}
+
+.ui-shadow{
+	-moz-box-shadow: 0px 0px 5px #ccc !important;
+	-webkit-box-shadow: 0px 0px 5px #ccc !important;
+	box-shadow: 0px 0px 5px #ccc !important;
+	
+}
+
+.ui-growl{
+	background: none !important;
+}
+
+.ui-growl-item-container{
+	border: 1px solid #ccc !important;
+	background: #F7F7F7 !important;
+	color: #666;
+	text-shadow: none !important;
+}
+
+/*Componentes*/
+
+.ui-menubar .ui-menubar-options {
+    margin-top: 8px !important;
+    margin-right: 5px !important;
+}
+
+.panelGrid td, .panelGrid tr{
+	border: none !important;
+	background: transparent;
+}
+
+.ui-panelgrid{
+	background: transparent !important;
+}
+
+.panelGrid2 td, .panelGrid2 tr{
+	border: none !important;
+
+}
+
+.panelGridColumn{
+	vertical-align: top;
+	background: transparent !important;
+} 
+
+/*Legend of fieldset*/
+.ui-fieldset{
+	background-image: url(#{resource['style/img/bkgFilter.png']});
+	background-repeat:repeat-x;
+	background-position:bottom;
+	border-color: #ccc;
+    display: inline-block !important;
+	max-width:951px;
+    width: 100%;
+}
+.ui-fieldset .ui-fieldset-legend{
+	border:0px;
+	padding:0.4em 1em 0.6em !important;
+	background: transparent;
+}
+
+/*Toolbar*/
+.ui-toolbar{
+	background-image: url(#{resource['style/img/bkgFilter.png']});
+	background-repeat:repeat-x;
+	background-position:bottom;
+	border-color: #ccc;
+}
+
+/*DataTable*/
+.ui-datatable{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+	border:0px;
+}
+
+.ui-datatable-data{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+	border:1px solid #fff;
+}
+
+.titTable th{
+	background-image:url(#{resource['style/img/bkgTitTable.png']}) !important;
+	background-repeat:repeat-x;
+	background-position:bottom;
+	color:#fff !important;
+	font-weight: normal;
+	border:1px solid #fff !important;
+	text-shadow: none !important;
+}
+
+.ui-datatable-footer{
+	background-image: url(#{resource['style/img/bkgFilter.png']});
+	background-repeat:repeat-x;
+	background-position:bottom;
+	border:0px !important;
+}
+
+.ui-datatable-even{
+	border:1px solid #fff;
+	background-image: url(#{resource['style/img/bkgZebra01.png']});
+	background-repeat:repeat-x;
+	background-position:bottom;
+}
+
+.ui-datatable-odd{
+	border:1px solid #fff;
+	background-image: url(#{resource['style/img/bkgZebra02.png']});
+	background-repeat:repeat-x;
+	background-position:bottom;
+}
+
+.ui-paginator{
+	border:0px !important;
+	background: none !important;
+}
+
+/*Menu bar*/
+.ui-menubar{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+	background-image: url(#{resource['style/img/bkgFilter.png']});
+	background-repeat:repeat-x;
+	background-position:bottom;
+	border:1px solid #ccc;
+}
+
+.ui-menu-list{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+	background: #F7F7F7 !important;
+}
+
+.ui-menuitem {
+	margin-left:10px !important;
+}
+
+.ui-menuitem[role="menuitem"] .ui-menuitem[role="menuitem"] {
+	margin-left: 0px !important;
+}
+
+.ui-state-active{
+	background: #fff !important;
+	border: 1px solid #ccc !important;
+	-moz-box-shadow: 0px 0px 5px #ccc !important;
+	-webkit-box-shadow: 0px 0px 5px #ccc !important;
+	box-shadow: 0px 0px 5px #ccc !important;
+}
+
+.ui-state-hover{
+	background: #fff !important;
+	border: 1px solid #ccc !important;
+	-moz-box-shadow: 0px 0px 5px #ccc !important;
+	-webkit-box-shadow: 0px 0px 5px #ccc !important;
+	box-shadow: 0px 0px 5px #ccc !important;
+}
+
+/*Button*/
+.ui-button{
+	border:1px solid #ccc !important;
+}
+
+
+/*Icon*/
+.ui-icon{
+	width:16px;
+	height:16px;
+	background-image:url(#{resource['style/img/ui-icons_616161_256x240.png']}) !important;
+}
+
+/*corrigi bug combo*/
+.ui-selectonemenu label.ui-selectonemenu-label {
+    width: auto !important;
+}
+
+/* Correção das mensagens de erro ao lado dos fields */ 
+.ui-message-info-icon, .ui-message-warn-icon, .ui-message-error-icon, .ui-message-fatal-icon {
+    margin-top: -2px !important;
+}
+
+.ui-messages-info-icon, .ui-messages-warn-icon, .ui-messages-error-icon, .ui-messages-fatal-icon {
+    margin-top: -6px !important;
+}
+
+.ui-icon-close {
+    margin-top: -2px !important;
+}

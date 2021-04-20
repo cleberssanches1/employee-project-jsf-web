@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/template/template.xhtml">
+
+	<ui:define name="conteudoPagina">
+		<h:form id="form1">
+		
+			<!-- Dialogo de mensagens informativas e de erro  -->
+			<p:dialog id="modalDialog" header="#{managedBean.headerModalMsg}" widgetVar="modalDialog" 
+					  modal="true" height="80" closable="false">  
+		   		<h:outputText value="#{managedBean.modalMsg}" /><br/><br/>
+		   		<hr/>
+		   		<p:commandButton value="Fechar" onclick="modalDialog.hide();" action="#{managedBean.redirectNextModalAction}"/> 
+			</p:dialog>
+		
+			<p:messages id="mensagensGerais" for ="MensagensGerais" showDetail="true" autoUpdate="true" closable="true" styleClass="mensagensGerais"/>
+			<p:toolbar styleClass="toolBar">
+				<p:toolbarGroup align="left">
+					<ui:insert name="botoesPesonalizados" />
+				</p:toolbarGroup>
+			</p:toolbar>
+			<p:outputPanel id="conteudoLista">
+				<p:fieldset legend="#{ResourceLabel.lbl_default_grid}" rendered="#{renderedFieldsetLista}" >
+					<ui:insert name="conteudoLista" />
+				</p:fieldset>
+			</p:outputPanel>
+		</h:form>
+			<ui:insert name="conteudoPosLista" />
+	</ui:define>
+</ui:composition>
